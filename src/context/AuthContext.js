@@ -22,26 +22,31 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
   let [currentUser, setCurrentUser] = useState("");
 
-  // useEffect(() => {
-  //   console.log('authcontext.js mounted')
+  useEffect(() => {
+    // onAuthStateChanged will executed in login and logout
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setCurrentUser(user);
+    });
 
-  //   return () => console.log('authcontext.js unmounted')
-  // }, []);
+    // unsubscribe when unmounting the component
+    return unsubscribe;
+  }, []);
 
   // google sign up with popup
-  let doSingUpWithGoogle = async () => {
-    try {
-      let response = await auth.signInWithPopup(googleProvider);
-      setCurrentUser(response.user.displayName);
-    } catch (error) {
-      console.error("Error: while signing up with google");
-    }
+  let doSignInWithGoogle = () => {
+      return auth.signInWithPopup(googleProvider);
+  };
+
+  // this will logout a user
+  let doLogout = () => {
+     return auth.signOut();
   };
 
   // context value object
   const value = {
     currentUser,
-    doSingUpWithGoogle,
+    doSignInWithGoogle,
+    doLogout,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

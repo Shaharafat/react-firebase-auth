@@ -1,18 +1,16 @@
-import React from 'react'
-import { Button } from '../components'
-
-import {useAuth} from '../context/AuthContext'
+import React from "react";
+import { Button } from "../components";
+import { useAuth } from "../context/AuthContext";
 
 const Signup = () => {
-  const { doSingUpWithGoogle, currentUser } = useAuth();
-
-  
+  const { doSingInWithGoogle,doLogout, currentUser } = useAuth();
+  console.log(currentUser)
   return (
     <div>
-      <Button handleClick={doSingUpWithGoogle}>Signup with Google</Button>
-      {currentUser}
+      <Button handleClick={doSingInWithGoogle}>Signup with Google</Button>
+      <Button handleClick={doLogout}>Logout</Button>
     </div>
-  )
-}
+  );
+};
 
-export default Signup
+export default Signup;
