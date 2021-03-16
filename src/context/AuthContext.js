@@ -8,7 +8,7 @@
  */
 
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { auth, googleProvider } from "../firebase";
+import { auth, googleProvider, facebookProvider } from "../firebase";
 
 // create context
 const AuthContext = createContext();
@@ -26,6 +26,7 @@ export const AuthProvider = ({ children }) => {
     // onAuthStateChanged will executed in login and logout
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
+      console.log(user);
     });
 
     // unsubscribe when unmounting the component
@@ -33,8 +34,8 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   // google sign up with popup
-  let doSignInWithGoogle = () => {
-      return auth.signInWithPopup(googleProvider);
+  let doSocialSignIn = (provider) => {
+      return auth.signInWithPopup(provider);
   };
 
   // this will logout a user
@@ -45,7 +46,7 @@ export const AuthProvider = ({ children }) => {
   // context value object
   const value = {
     currentUser,
-    doSignInWithGoogle,
+    doSocialSignIn,
     doLogout,
   };
 

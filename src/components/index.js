@@ -9,9 +9,11 @@
  */
 
 import Button from './Button';
-import Form from './Form'
+import Form from './Form';
+import SocialLogin from './SocialLogin';
 
 export {
   Button,
-  Form
+  Form,
+  SocialLogin
 }

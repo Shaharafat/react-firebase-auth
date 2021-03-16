@@ -1,3 +1,11 @@
+/*
+ *
+ * Title: firebase configuration
+ * Description: firebase configuration and auth providers exported
+ * Author: Shah Arafat
+ *
+ */
+
 import dotenv from "dotenv";
 import firebase from "firebase/app";
 import "firebase/auth";
@@ -33,3 +41,9 @@ export const auth = app.auth();
 
 //* google auth provier. It will pass as parameter to sign up with google
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
+
+//* facebook auth provider. It will pass as parameter to sign up with google
+export const facebookProvider = new firebase.auth.FacebookAuthProvider();
+
+//* github auth provider. It will pass as parameter to sign up with google
+export const githubProvider = new firebase.auth.GithubAuthProvider();

@@ -2,11 +2,15 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 
-const Form = () => {
+const Form = ({isSignupPage = false}) => {
   const { register, errors, handleSubmit } = useForm();
 
   return (
     <form className="w-full">
+      <div hidden={!isSignupPage}>
+        <label htmlFor="name"></label>
+        <input type="text" id="name" name="name" placeholder="Enter your name"  className="form-input"/>
+      </div>
       <div>
         <label htmlFor="email"></label>
         <input type="text" id="email" name="email" placeholder="Enter your email"  className="form-input"/>
