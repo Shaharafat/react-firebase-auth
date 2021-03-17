@@ -23,6 +23,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "tailwindcss": "^2.0.3",
+    "tailwindcss-cli": "^0.1.2",
     "web-vitals": "^1.0.1",
     "yup": "^0.32.9"
   },
@@ -31,7 +32,7 @@
     "build": "yarn run tailwind-build && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "tailwind-build": "postcss build ./src/styles/tailwind.css -o ./src/styles/style.css"
+    "tailwind-build": "npx tailwind build ./src/styles/tailwind.css -o ./src/styles/style.css"
   },
   "eslintConfig": {
     "extends": [
