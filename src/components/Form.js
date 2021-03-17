@@ -8,15 +8,20 @@
  *
  */
 
-import React from "react";
-import { useForm } from "react-hook-form";
+import React, { useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
 import { useHistory } from "react-router";
 import { useAuth } from "../context/AuthContext";
 import { loginSchema, signUpSchema } from "../helper/schemas";
 
 const Form = ({ isSignupPage = false }) => {
-  const { doSignupWithEmailPass, doSigninWithEmailPass } = useAuth();
+  const [error, setError] = useState("");
+
+  const {
+    doSignupWithEmailPass,
+    doSigninWithEmailPass,
+  } = useAuth();
 
   const history = useHistory();
 
@@ -31,9 +36,11 @@ const Form = ({ isSignupPage = false }) => {
   const signup = async (data) => {
     const { email, password } = data;
     try {
+      setError('');
       await doSignupWithEmailPass(email, password);
       history.push("/");
     } catch (error) {
+      setError(error.message)
       console.error("Error signing up", error.message);
     }
   };
@@ -42,10 +49,11 @@ const Form = ({ isSignupPage = false }) => {
   const login = async (data) => {
     const { email, password } = data;
     try {
+      setError('');
       await doSigninWithEmailPass(email, password);
       history.push("/");
     } catch (error) {
-      console.error("Error signing up", error.message);
+      setError(error.message);
     }
   };
 
@@ -97,10 +105,10 @@ const Form = ({ isSignupPage = false }) => {
           {!isSignupPage && errors.password?.message && "Type valid password"}
         </p>
       </div>
-
+      <p className="text-red-600 text-sm mt-2">{error}</p>
       <button
         type="submit"
-        className="form-input bg-green-500 text-white font-semibold text-md"
+        className="form-input bg-green-500 hover:bg-green-600 text-white font-semibold text-md"
       >
         Login
       </button>

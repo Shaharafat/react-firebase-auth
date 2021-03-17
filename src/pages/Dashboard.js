@@ -1,6 +1,6 @@
 import React from "react";
 import { faEraser } from "@fortawesome/free-solid-svg-icons";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Button } from "../components";
 import { useAuth } from "../context/AuthContext";
 

@@ -9,6 +9,7 @@
 
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { auth } from "../firebase";
+import { Loading } from "../pages";
 
 // create context
 const AuthContext = createContext();
@@ -68,6 +69,7 @@ export const AuthProvider = ({ children }) => {
   const value = {
     currentUser,
     loading,
+    setLoading,
     doSocialSignIn,
     doLogout,
     doSignupWithEmailPass,
@@ -78,7 +80,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider value={value}>
-      {!loading ? children : <h1> loading!! </h1>}
+      {!loading ? children : <Loading />}
     </AuthContext.Provider>
   );
 };

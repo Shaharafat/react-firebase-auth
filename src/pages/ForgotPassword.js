@@ -15,6 +15,8 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 const ForgotPassword = () => {
+  const [success,setSuccess] = useState("");
+  const [error,setError] = useState("");
   const { doResetPassword } = useAuth();
   const { register, handleSubmit, errors } = useForm({
     mode: "onTouched",
@@ -22,14 +24,17 @@ const ForgotPassword = () => {
       yup.object().shape({ email: yup.string().email().required() }) // yup schema
     ),
   });
-  const [message, setMessage] = useState("");
 
   const resetPassword = async (data) => {
     let { email } = data;
     try {
+      setSuccess("")
+      setError("")
       await doResetPassword(email);
-      setMessage("Password reset mail sent. Check email to reset");
+      setSuccess("Password reset mail sent. Check email to reset");
     } catch (error) {
+      // setError('No user found with this email')
+      setError(error.message)
       console.log("Password reset operation failed.", error.message);
     }
   };
@@ -56,26 +61,22 @@ const ForgotPassword = () => {
             <p className="text-sm text-red-600">{errors.email?.message}</p>
           </div>
 
+          {success && <p className="text-sm text-green-600 mt-2">{success}</p> }
+          {error && <p className="text-sm text-red-600 mt-2">{error}</p> }
+
           <button
             type="submit"
-            className="form-input bg-green-500 text-white font-semibold text-md"
+            className="form-input bg-green-500 hover:bg-green-600 text-white font-semibold text-md"
           >
             Reset Password
           </button>
-          {message && <p className="text-sm text-green-600 mt-2">{message}</p> }
         </form>
 
         {/* extra options to navigate */}
-        <div className="mt-4 py-2 border-t-2 w-full text-center flex flex-col">
+        <div className="mt-4 py-2 border-t-2 w-full text-center">
           <span>
             <Link to="/login" className="text-blue-500 hover:underline">
               Login
-            </Link>
-          </span>
-          <span className="inline-block mt-3">
-            New User?{" "}
-            <Link to="/signup" className="text-blue-500 hover:underline">
-              Create an account
             </Link>
           </span>
         </div>

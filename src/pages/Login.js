@@ -1,11 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Form, SocialLogin } from "../components";
-import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
-  let { currentUser,loading } = useAuth();
-  console.log(currentUser,loading);
+  
   return (
     <div className="h-screen flex justify-center items-center">
       <div className="content-container">
