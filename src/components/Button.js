@@ -1,5 +1,14 @@
+/*
+ *
+ * Title: Button
+ * Description: This button component will use ans social buttons
+ * Author: Shah Arafat
+ * Date: 18-03-2021
+ *
+ */
+
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Button = ({ children, handleClick , icon, bgColor}) => {
   
