@@ -21,7 +21,7 @@ import {
 } from "./pages";
 import PrivateRoute from "./routes/PrivateRoute";
 // styles
-import "./styles/style.css";
+// import "./styles/style.css";
 
 function App() {
   return (
