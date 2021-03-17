@@ -11,7 +11,7 @@ import "firebase/auth";
 
 let firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AITH_DOMAIN,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
   projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
   storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
@@ -35,3 +35,7 @@ export const facebookProvider = new firebase.auth.FacebookAuthProvider();
 //* github auth provider. It will pass 
 // as parameter to sign up with google
 export const githubProvider = new firebase.auth.GithubAuthProvider();
+
+//* Twitter auth provider. It will pass 
+// as parameter to sign up with google
+export const twitterProvider = new firebase.auth.TwitterAuthProvider();

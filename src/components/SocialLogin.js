@@ -1,8 +1,8 @@
-import { faFacebookF, faGithub, faGoogle, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import React from 'react';
+import { faFacebookF, faGithub, faGoogle, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import {googleProvider, facebookProvider, githubProvider} from '../firebase'
+import { googleProvider, facebookProvider, githubProvider, twitterProvider } from '../firebase';
 import { Button } from "../components";
 
 const SocialLogin = () => {
@@ -24,7 +24,7 @@ const SocialLogin = () => {
       <Button handleClick={() => signInWithSocialAccount(googleProvider)} icon={faGoogle} bgColor="bg-red-500">Continue with Google</Button>
       <Button handleClick={() => signInWithSocialAccount(githubProvider)} icon={faGithub} bgColor="bg-gray-800">Continue with Github</Button>
       <Button handleClick={() => signInWithSocialAccount(facebookProvider)} icon={faFacebookF} bgColor="bg-blue-900">Continue with Facebook</Button>
-      <Button handleClick={() => signInWithSocialAccount(googleProvider)} icon={ faTwitter } bgColor="bg-blue-500">Continue with Twitter</Button>
+      <Button handleClick={() => signInWithSocialAccount(twitterProvider)} icon={ faTwitter } bgColor="bg-blue-500">Continue with Twitter</Button>
     </div>
   )
 }

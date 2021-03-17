@@ -3,7 +3,7 @@ import { Redirect, Route } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
-  const { currentUser } = useAuth();
+  const { currentUser, loading } = useAuth();
 
   // if current user exists then goto to given page.
   // otherwise goto login page

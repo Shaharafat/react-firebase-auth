@@ -28,11 +28,11 @@ function App() {
     <AuthProvider>
       <Router>
         <Switch>
+          <PrivateRoute path="/" exact component={Dashboard} />
+          <PrivateRoute path="/updateProfile" component={UpdateProfile} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
-          <PrivateRoute path="/updateProfile" component={UpdateProfile} />
-          <PrivateRoute path="/forgotPassword" component={ForgotPassword} />
-          <PrivateRoute path="/" exact component={Dashboard} />
+          <Route path="/forgotPassword" component={ForgotPassword} />
         </Switch>
       </Router>
     </AuthProvider>
