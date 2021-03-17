@@ -43,11 +43,17 @@ export const AuthProvider = ({ children }) => {
      return auth.signOut();
   };
 
+  // this will signup with email and pasword
+  let doSignupWithEmailPass = (email, password) => {
+    return auth.createUserWithEmailAndPassword(email, password);
+  }
+
   // context value object
   const value = {
     currentUser,
     doSocialSignIn,
     doLogout,
+    doSignupWithEmailPass,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

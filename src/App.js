@@ -7,9 +7,10 @@
  *
  */
 
+// import dotenv from 'dotenv'
+
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import PrivateRoute from "./routes/PrivateRoute";
 import { AuthProvider } from "./context/AuthContext";
 import {
   Dashboard,
@@ -18,7 +19,7 @@ import {
   Signup,
   UpdateProfile,
 } from "./pages";
-
+import PrivateRoute from "./routes/PrivateRoute";
 // styles
 import "./styles/style.css";
 

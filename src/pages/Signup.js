@@ -1,14 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Form, SocialLogin } from "../components";
-import { useAuth } from "../context/AuthContext";
 
 const Signup = () => {
-  const { doSingInWithGoogle,doLogout, currentUser } = useAuth();
+
   return (
     <div className="h-screen flex justify-center items-center">
       <div className="content-container">
-        <p className="text-gray-600 font-semibold mt-4">Log in to your account</p>
+        <p className="text-gray-600 font-semibold mt-4">Sign up for your account</p>
         <Form isSignupPage={true} />
         <p className="text-md text-gray-500 my-3">or</p>
         <SocialLogin />

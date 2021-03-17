@@ -1,16 +1,13 @@
 import React from "react";
-import { useHistory, Link } from "react-router-dom";
-import { Button, Form, SocialLogin } from "../components";
-import { useAuth } from "../context/AuthContext";
+import { Link } from "react-router-dom";
+import { Form, SocialLogin } from "../components";
 
 const Login = () => {
-  const { doLogout } = useAuth();
-
 
   return (
     <div className="h-screen flex justify-center items-center">
       <div className="content-container">
-        <p className="text-gray-600 font-semibold mt-4">Sign up for your account</p>
+        <p className="text-gray-600 font-semibold mt-4">Login to your account</p>
         <Form />
         {/* social login options */}
         <p className="text-md text-gray-500 my-3">or</p>
