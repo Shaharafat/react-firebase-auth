@@ -101,8 +101,7 @@ const Form = ({ isSignupPage = false }) => {
         <p className="text-sm text-red-600">
           {isSignupPage &&
             errors.password?.message &&
-            "Password must contain A-Z,a-z,0-9 and special characters (#,$,_) and minimum length should be 8 characters"}
-          {!isSignupPage && errors.password?.message && "Type valid password"}
+            "Password must contain at least 1 capital letter, 1 small letter, 1 numeric digit and 1 special characters (#,$,_) and minimum length should be 8 characters"}
         </p>
       </div>
       <p className="text-red-600 text-sm mt-2">{error}</p>
