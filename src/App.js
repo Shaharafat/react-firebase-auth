@@ -20,8 +20,6 @@ import {
   UpdateProfile,
 } from "./pages";
 import PrivateRoute from "./routes/PrivateRoute";
-// styles
-// import "./styles/style.css";
 
 function App() {
   return (

@@ -110,7 +110,7 @@ const Form = ({ isSignupPage = false }) => {
         type="submit"
         className="form-input bg-green-500 hover:bg-green-600 text-white font-semibold text-md"
       >
-        Login
+        {isSignupPage ? "Sign up" : "Login"}
       </button>
     </form>
   );
